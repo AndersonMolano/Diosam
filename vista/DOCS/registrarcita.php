@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+    include("../../controlador/registro_cita.php")
 
 ?>
 <!DOCTYPE html>
@@ -60,7 +60,23 @@
                     <a class="nav-link" href="visitanos.php"><i class="far fa-calendar-alt"></i>Visítanos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php"><i class="far fa-chart-bar"></i>Iniciar Sesion</a>
+                <?php
+                    
+                    if(isset($_SESSION['email_user']) && $_SESSION['rol'] == 1 ){
+                        require_once("../template/user_log.php");
+                        echo('<li class="nav-item">
+                        <a class="inicia-sesion" href="../../rest/usuarios.html">administrar Usuarios</a>
+                        </li>');
+                        
+                    }else if(isset($_SESSION['email_user'])){ 
+                        require_once("../template/user_log.php");
+
+                        }else{
+                            echo('<li class="nav-item">
+                            <a class="inicia-sesion" href="login.php">Iniciar Sesión</a>
+                            </li>');
+                        }
+                    ?>
                 </li>
             </ul>
         </div>
@@ -122,46 +138,84 @@ jQuery(document).ready(function($){
 </script>
     </nav>
     </header> 
-    <form class="login-form">
 
+    
 
-<h2>Registro</h2>
-<div class="form-floating mb-3">
+<form class="login-form">
+    <h2>Registro</h2>
+    <div class="form-floating mb-3">
+    <?php
 
-    <input type="name" class="form-control" id="floatingInput" placeholder="Name">
+        if(isset($_SESSION['name_user'])){
+
+            echo '<input type="text" class="form-control" id="floatingInput" name="name" value="' . $_SESSION['name_user'] . '" readonly>';
+        }else{
+            echo 'a';
+        }
+    ?>
     <label for="floatingInput">Nombre</label>
-  </div> 
-   <div class="form-floating mb-3">
-    <select class="form-select" id="selectServicio" name="selectServicio">
-        <option value="opcion1">Colorimetria cabello</option>
-        <option value="opcion2">Maquillaje</option>
-        <option value="opcion3">Manicura</option>
-        <option value="opcion3">Pedicura</option>
-        <option value="opcion3">Peinados</option>
-        <option value="opcion3">Cortes damas</option>
-        <option value="opcion3">Cortes caballero</option>
-        <option value="opcion3">Cepillado y planchado</option>
-        <option value="opcion3">Keratina</option>
-        
-    </select>
-    <label for="selectServicio">Selecciona un Servicio</label>
-</div>
-  <div class="form-floating mb-3">
-    <label for="fecha"></label>
-    <input type="date" id="fecha" name="fecha">
-  </div>
-  <div class="form-floating mb-3">
-    <label for="hora"></label>
-    <input type="time" id="hora" name="hora">
-  </div>
-  <br>
-  <div class="buttom-1">
-    <div class="button-danger">
-<button type="button" class="btn btn-danger ">Registrar cita</button>
-</div>  
-</div>
+    </div> 
+    <div class="form-floating mb-3">
+        <select class="form-select" id="selectServicio" name="selectServicio">
+        <?php
+
+            include("../../controlador/listar_servicios.php");           
+             for($i=1;$i<=$total_servicios;$i = $i + 1){    
+
+                $consulta_nombre= "SELECT type_servi from servicio where id_servi = $i";
+                $resulado_nombre= mysqli_query($conexion, $consulta_nombre);
+                        
+                $nombre = mysqli_fetch_array($resulado_nombre);
+                $nombre_servicio = $nombre['type_servi'];
+                            
+                echo '<option value="' . $i . '">' . $nombre_servicio . '</option>';
+                                             
+            } 
+
+        ?>
+         </select>
+        <label for="selectServicio">Selecciona un Servicio</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <label for="fecha"></label>
+        <input type="date" id="fecha" name="fecha"  onchange="validarFecha()">
+    </div>
+    <div class="form-floating mb-3">
+        <label for="hora"></label>
+        <input type="time" id="hora" name="hora" oninput="validarHora()">
+    </div>
+    
+    <div class="buttom-1">
+        <div class="button-danger">
+            <input type="submit" class="btn btn-danger" value="Agendar cita" name="registro_cita" ></input>
+        </div>  
+    </div>
 </form>
 </body>
+
+<script>
+    function validarFecha() {
+        var inputFecha = document.getElementById("fecha");
+        var fechaIngresada = new Date(inputFecha.value);
+        var fechaHoy = new Date();
+
+        if (fechaIngresada < fechaHoy) {
+            alert("La fecha no puede ser anterior a hoy.");
+            inputFecha.value = ''; // Limpia el campo de fecha
+        }
+    }
+
+    function validarHora() {
+        var inputHora = document.getElementById("hora");
+        var horaIngresada = inputHora.value;
+
+        if (horaIngresada < "07:00" || horaIngresada > "20:00") {
+            alert("Ingresa una hora entre las 7:00 AM y las 8:00 PM.");
+            inputHora.value = ""; // Limpia el campo de hora
+        }
+    }
+</script>
 <br>
 <br>
 <br>
