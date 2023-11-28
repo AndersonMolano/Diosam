@@ -71,7 +71,7 @@
                         <a class="inicia-sesion" href="rest/Usuarios/usuarios.html">administrar Usuarios</a>
                         </li>');
                         echo('<li class="nav-item">
-                                <a class="inicia-sesion" href="vista/DOCS/registrar_servicio.php">Agregar servicio</a>
+                                <a class="inicia-sesion" href="vista/DOCS/registrarservicio.php">Agregar servicio</a>
                                 </li>');
                         
                     }else if(isset($_SESSION['email_user'])){ 
