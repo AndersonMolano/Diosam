@@ -1,0 +1,301 @@
+  .login-form {
+    max-width: 400px;
+    margin: 222px auto;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #fff;
+    border-radius: 15px;
+  }
+  
+  .login-form h2 {
+    text-align: center;
+    line-height: 80px;
+    margin-top: -20px;
+    font-family: 'Lobster Two', cursive;
+    text-shadow: red -1px -1px;
+  }
+  
+  .login-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+  }
+  
+  .login-form input[type="submit"] {
+    padding: 10px;
+    background-color: #e42a2a;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .login-form input[type="submit"]:hover {
+    background-color: red;
+    text-align: center;
+  }
+  
+  .button-danger {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: -30px;
+    margin-top: -30px;
+  }
+  
+  .buttom-1 {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  a[href="login.html"] {
+    background-color: transparent;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    border: 2px solid #FF0000;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  a[href="login.html"]:hover {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+  }
+  
+  .nav {
+    --bs-nav-link-color: white;
+    --bs-nav-link-hover-color: #FF0000;
+    font-size: 20px;
+  }
+  
+  .button-pss {
+    text-align: center;
+  }
+  
+  .button-rgt {
+    text-align: center;
+    margin-top: 10px;
+  }
+  input[type="date"],
+  input[type="time"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      color: #333;
+  }
+  
+  .form-floating input[type="date"]::placeholder,
+  .form-floating input[type="time"]::placeholder {
+      color: #555;
+  }
+  
+  .form-floating input[type="date"]:focus,
+  .form-floating input[type="time"]:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+  }
+  
+  .form-floating label {
+      font-size: 16px;
+      color: #555;
+  }
+  
+  .form-floating input:focus ~ label {
+      color: #007bff;
+  }
+  
+  .form-select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      color: #333;
+  }
+  
+  .form-select option {
+      padding: 8px;
+  }
+  
+  .form-select:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+  }
+  footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer .contenido ul {
+    margin-top: 0; /* Ajusta el margen superior */
+    margin-left: 0; /* Ajusta el margen izquierdo */
+    display: flex;
+    justify-content: center;
+    font-family: 'Lobster Two', cursive;
+    color: white;
+  }
+  
+  footer .contenido li {
+    margin: 0 10px; /* Ajusta el margen entre elementos de la lista */
+    list-style-type: none;
+    font-size: 16px; /* Ajusta el tamaño de fuente */
+  }
+  
+  footer .contenido a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 2px solid white;
+  }
+  
+  footer .contenido a:hover {
+    background-color: white;
+    color: #000000;
+  }
+  
+  
+
+.mt-5 {
+    margin-bottom: -55rem ;
+}
+
+div.container div.row div.col-md-6 img.imagen-a {
+    max-width: 100%;
+    height: auto;
+    /* Otros estilos específicos para la imagen aquí */
+}
+
+.fundadora {
+    border-radius: 0%;
+}
+.container h2{
+    color: white;
+    font-family: 'Lobster Two', cursive;
+    color: white;
+}
+
+.container p {
+    color: white;
+    font-size: 18px;
+}
+
+.info {
+    flex: 1;
+    padding: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+div.container div.row div.col-md-6 img.imagen-a {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px; /* Establece el border-radius en 0 para eliminarlo */
+    /* Otros estilos específicos para la imagen aquí */
+}
+
+/* Establece la posición relativa para el contenedor principal */
+.col-md-6 {
+    position: relative;
+}
+
+/* Define la posición inicial de los elementos */
+.initial-position {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Agrega una animación para mover la imagen desde la izquierda al centro */
+@keyframes slideInImage {
+    0% {
+        transform: translateX(-30%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Aplica la animación a la imagen cuando la página se carga */
+.image-container {
+    animation: slideInImage 2s forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilos para el contenedor de texto al lado de la imagen */
+.text-container {
+    opacity: 0;
+    transform: translateX(40%);
+}
+
+/* Agrega una animación para mover el texto al centro */
+@keyframes slideInText {
+    0% {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Aplica la animación al texto cuando la página se carga */
+.text-container {
+    animation: slideInText 2s forwards;
+}
+
+/* Estilos para el caption (frase) */
+/* Estilos para el caption (frase) */
+/* Estilos para el caption (frase) */
+.image-caption {
+    position: absolute;
+    bottom: 0; /* Alinea el caption en la parte inferior de la imagen */
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    transform: translateY(100%); /* Inicialmente, la frase está fuera de la vista */
+    transition: transform 0.3s; /* Agregar una transición suave */
+    padding: 5px 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Inicialmente, el caption está oculto */
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 25px;
+    font-family: 'Lobster Two', cursive;
+
+}
+
+/* Muestra el caption cuando se pasa el cursor sobre la imagen */
+.image-container:hover .image-caption {
+    transform: translateY(0); /* Muestra la frase moviéndola hacia arriba */
+    opacity: 1; /* Muestra el caption con una transición de opacidad */
+}

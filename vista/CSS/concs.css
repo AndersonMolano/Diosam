@@ -1,0 +1,122 @@
+
+* {
+  font-family: "Inter", sans-serif;
+  text-transform: capitalize;
+}
+
+div {
+}
+/* common */
+section {
+  padding: 20px 0;
+}
+@media only screen and (min-width: 768px) {
+  section {
+    padding-top: 50px;
+  }
+}
+p,
+li {
+  color: #808080;
+  font-size: 0.9em;
+}
+.carousel-item {
+  position: relative;
+}
+.main-img {
+  height: 100vh;
+}
+.flex {
+  flex: 1;
+}
+.arrows a {
+  color: #000;
+  font-family: "PlayFair Display";
+}
+
+/* navbar */
+.navbar {
+  background-color: #000;
+}
+/*  */
+@media only screen and (min-width: 992px) {
+  .navbar {
+    background-color: black;
+    position: absolute !important;
+    width: 100%;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    padding: 2em 4em !important;
+  }
+}
+
+.section-intro {
+  height: 300px;
+  background: linear-gradient(#00000031, rgba(0, 0, 0, 0.397)),
+    url(https://themes.getmotopress.com/luviana/wp-content/uploads/sites/27/2019/07/slide-2-new-2560x1268.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: fixed;
+}
+.section-intro-title {
+  font-size: 3em;
+  font-family: "MuseoModerno", cursive;
+  color: #cccccc;
+  position: relative;
+  padding-top: 30px;
+}
+@media only screen and (min-width: 768px) {
+  .section-intro {
+    height: 500px;
+  }
+  .section-intro-title {
+    font-size: 4em;
+  }
+}
+.section-intro-title img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer .contenido ul {
+  margin-top: 0;
+  margin-left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+footer .contenido li {
+  margin: 0 10px;
+  list-style-type: none;
+  font-size: 16px;
+}
+
+footer .contenido a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 2px solid white;
+}
+
+footer .contenido a:hover {
+  background-color: white;
+  color: #333;
+}

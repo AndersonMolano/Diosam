@@ -1,0 +1,83 @@
+
+
+/* Estilos para la ventana modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 82%;
+    width: 30%;
+    height: 60%;
+    z-index: 1000; /* Coloca la ventana modal en la parte superior */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para la ventana modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 12%; /* Ajusta el valor según la posición vertical deseada */
+    right: 20px; /* Coloca la ventana en la esquina derecha */
+    width: 15%;
+    height: 35%;
+    z-index: 1000; /* Coloca la ventana modal en la parte superior */
+    /* No es necesario justify-content y align-items para este diseño */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    animation: scaleIn 0.3s ease-in-out; /* Agrega una animación de entrada */
+}
+
+/* Estilos para el botón de cerrar */
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 34px;
+    color: #ff0000;
+}
+
+/* Estilos para la imagen del usuario */
+.user_logo {
+    width: 90px;
+    height: 90px;
+    margin: 20px auto;
+    border: 3px solid red; /* Agregar borde de color rojo */
+    border-radius: 50%; /* Agregar radio de borde del 50% para hacerla redonda */
+}
+
+
+/* Estilos para el correo electrónico y el nombre */
+.email{
+    font-size: 15px;
+    color: black;
+}
+.nombre {
+    font-size: 30px;
+    margin: 10px 0;
+    color: black;
+}
+
+/* Animación de entrada */
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.perfil_user{
+    width: 50px;
+     height: 50px;
+      border-radius: 50%;
+}
