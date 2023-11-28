@@ -1,0 +1,87 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Servicios",
+    "dateExported": "2023-11-01T20:08:50.067Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "31776d1a-809f-4861-abe2-b66991ca59e8",
+            "colId": "49696190-d05f-408b-bed8-99905214189e",
+            "containerId": "",
+            "name": "CONSULTAR SERVICIOS",
+            "url": "http://localhost/Proyecto-diosam/rest/Servicios/servicios.php",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-11-01T19:45:34.748Z",
+            "modified": "2023-11-01T19:46:57.864Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a1b61701-7745-41d4-9fe0-985934f01769",
+            "colId": "49696190-d05f-408b-bed8-99905214189e",
+            "containerId": "",
+            "name": "ELIMINAR SERVICIOS",
+            "url": "http://localhost/Proyecto-diosam/rest/Servicios/servicios.php?id=4",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-11-01T19:47:12.572Z",
+            "modified": "2023-11-01T19:47:52.540Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "4",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "9899f2f0-3b79-4cda-83fa-43a721cafbf4",
+            "colId": "49696190-d05f-408b-bed8-99905214189e",
+            "containerId": "",
+            "name": "ACTUALIZAR SERVICIO",
+            "url": "http://localhost/Proyecto-diosam/rest/Servicios/servicios.php?id=3",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-11-01T19:48:15.811Z",
+            "modified": "2023-11-01T19:49:30.098Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "3",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id_servi\":\"3\",\n  \"price_servi\":30000.00\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "94c98808-fef1-4cd4-bfee-7f34bbcd0ceb",
+            "colId": "49696190-d05f-408b-bed8-99905214189e",
+            "containerId": "",
+            "name": "CREAR SERVICIO",
+            "url": "http://localhost/Proyecto-diosam/rest/Servicios/servicios.php",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-11-01T19:49:42.987Z",
+            "modified": "2023-11-01T19:51:05.508Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"price_servi\":20000.00,\n  \"type_servi\":\"Corte\",\n  \"descrip_servi\":\"Corte de cabello\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

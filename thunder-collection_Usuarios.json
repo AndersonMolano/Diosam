@@ -1,0 +1,87 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Usuarios",
+    "dateExported": "2023-11-01T20:08:36.171Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "201cb77b-c576-4773-98c1-ebd61741b1f8",
+            "colId": "2e98d904-b171-4ca5-b842-00c873d70f45",
+            "containerId": "",
+            "name": "CREAR USUARIO",
+            "url": "http://localhost/Proyecto-diosam/rest/Usuarios/user.php",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-11-01T18:59:44.186Z",
+            "modified": "2023-11-01T19:41:06.450Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name_user\":\"sayra\",\n  \"lastname_user\":\"Garzon\",\n  \"email_user\":\"sayra@gmail.com\",\n  \"password_user\":\"12345678\",\n  \"role_user\":\"Cliente\",\n  \"state_user\":\"activo\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "795778b0-0ec4-4f31-8713-752e5f89dad0",
+            "colId": "2e98d904-b171-4ca5-b842-00c873d70f45",
+            "containerId": "",
+            "name": "ELIMINAR USUARIOS",
+            "url": "http://localhost/Proyecto-diosam/rest/Usuarios/user.php?id=8",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-11-01T19:41:15.945Z",
+            "modified": "2023-11-01T19:42:18.604Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "8",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "afee38ae-78a5-4a6a-8d0b-b18433b00e2a",
+            "colId": "2e98d904-b171-4ca5-b842-00c873d70f45",
+            "containerId": "",
+            "name": "CONSULTAR USUARIOS",
+            "url": "http://localhost/Proyecto-diosam/rest/Usuarios/user.php",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-11-01T19:42:41.604Z",
+            "modified": "2023-11-01T19:42:46.151Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "9b1325a5-7d42-423d-a755-edfe7463fb3a",
+            "colId": "2e98d904-b171-4ca5-b842-00c873d70f45",
+            "containerId": "",
+            "name": "ACTUALIZAR USUARIOS ",
+            "url": "http://localhost/Proyecto-diosam/rest/Usuarios/user.php?id=6",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-11-01T19:43:00.723Z",
+            "modified": "2023-11-01T19:45:12.457Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "6",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id_user\":\"6\",\n  \"email_user\":\"sayra@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

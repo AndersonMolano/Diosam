@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
     if (isset($_GET['id_cita']))
     {
       //Mostrar un post
-      $sql = $dbConn->prepare("SELECT * FROM servicio where id_servi=:id_servi");
-      $sql->bindValue(':id_servi', $_GET['id_servi']);
+      $sql = $dbConn->prepare("SELECT * FROM cita where id_cita=:id_cita");
+      $sql->bindValue(':id_cita', $_GET['id_cita']);
       $sql->execute();
       header("HTTP/1.1 200 OK");
       echo json_encode(  $sql->fetch(PDO::FETCH_ASSOC)  );
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 	  }
     else {
       //Mostrar lista de post
-      $sql = $dbConn->prepare("SELECT * FROM servicio");
+      $sql = $dbConn->prepare("SELECT * FROM cita");
       $sql->execute();
       $sql->setFetchMode(PDO::FETCH_ASSOC);
       header("HTTP/1.1 200 OK");
@@ -35,34 +35,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
 
  
-    if (!empty($input) && !empty($input['price_servi'])) {
-        $price_servi = $input['price_servi'];
-        $type_servi = $input['type_servi'];
-        $descrip_servi = $input['descrip_servi'];
+    if (!empty($input) && !empty($input['data_meet'])) {
+        $data_meet = $input['data_meet'];
+        $idServiFK = $input['idServiFK'];
+        $idClieFK = $input['idClieFK'];
       
 
       
-        $sql = "INSERT INTO servicio
-                (price_servi, type_servi, descrip_servi)
+        $sql = "INSERT INTO cita
+                (data_meet, idServiFK, idClieFK)
                 VALUES 
-                (:price_servi, :type_servi, :descrip_servi)";
+                (:data_meet, :idServiFK, :idClieFK)";
         $statement = $dbConn->prepare($sql);
-        $statement->bindParam(':price_servi', $price_servi);
-        $statement->bindParam(':type_servi', $type_servi);
-        $statement->bindParam(':descrip_servi', $descrip_servi);
+        $statement->bindParam(':data_meet', $data_meet);
+        $statement->bindParam(':idServiFK', $idServiFK);
+        $statement->bindParam(':idClieFK', $idClieFK);
       
 
  
         $statement->execute();
-        $id_servi = $dbConn->lastInsertId();
+        $id_cita = $dbConn->lastInsertId();
 
-        if ($id_servi) {
+        if ($id_cita) {
            
             $user = [
-                'id_servi' => $id_servi,
-                'price_servi' => $price_servi,
-                'type_servi' => $type_servi,
-                'descrip_servi' => $descrip_servi
+                'id_cita' => $id_cita,
+                'data_meet' => $data_meet,
+                'idServiFK' => $idServiFK,
+                'idClieFK' => $idClieFK
 ,
             ];
             header("HTTP/1.1 201 Created");
@@ -87,8 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE')
 {
     $id = $_GET['id'];
-    $statement = $dbConn->prepare("DELETE FROM servicio where id_servi=:id_servi");
-    $statement->bindValue(':id_servi', $id);  // Usar ':id_user' como marcador de posición
+    $statement = $dbConn->prepare("DELETE FROM cita where id_cita=:id_cita");
+    $statement->bindValue(':id_cita', $id);  
     $statement->execute();
     header("HTTP/1.1 200 OK");
     exit();
@@ -103,11 +103,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT')
 
  
     if (!empty($input)) {
-        $id_servi = $input['id_servi'];
+        $id_cita = $input['id_cita'];
         $fields = $input;
 
         
-        unset($fields['id_servi']);
+        unset($fields['id_cita']);
 
         $updateFields = '';
         foreach ($fields as $key => $value) {
@@ -116,13 +116,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT')
         $updateFields = rtrim($updateFields, ', ');
 
         $sql = "
-              UPDATE servicio
+              UPDATE cita
               SET $updateFields
-              WHERE id_servi = :id_servi
+              WHERE id_cita = :id_cita
                ";
 
         $statement = $dbConn->prepare($sql);
-        $statement->bindValue(':id_servi', $id_servi);
+        $statement->bindValue(':id_cita', $id_cita);
         foreach ($fields as $key => $value) {
             $statement->bindValue(":$key", $value);
         }
