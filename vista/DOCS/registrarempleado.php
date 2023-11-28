@@ -1,4 +1,7 @@
+<?php
+  include("../../controlador/registrar_user.php");
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,16 +143,15 @@ jQuery(document).ready(function($){
           <br>
           
           <div class="button-danger">
-            <input type="submit" class="btn btn-danger" value="Registrar" name="registro" ></input>
+            <input type="submit" class="btn btn-danger" value="Registrarse" name="registro_user"></input>
           </div>  
          <br>
          <br>
+
+            
         
        </form>
       </body>
-      <br>
-      <br>
-      
       <?php include('../Templates_fm/footer.php'); ?>
     </html>
      

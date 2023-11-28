@@ -129,16 +129,16 @@ jQuery(document).ready(function($){
                 <h2>Administrar</h2>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="#" class="btn btn-primary btn-block">Clientes</a>
+                        <a href="../../rest/Usuarios/usuarios.html" class="btn btn-primary btn-block">Clientes</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" class="btn btn-primary btn-block">Empleados</a>
+                        <a href="../../rest/Empleados/empleados.html" class="btn btn-primary btn-block">Empleados</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" class="btn btn-primary btn-block">Citas</a>
+                        <a href="../../rest/Citas/citas.html" class="btn btn-primary btn-block">Citas</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" class="btn btn-primary btn-block">Servicios</a>
+                        <a href="../../rest/Servicios/servicios.html" class="btn btn-primary btn-block">Servicios</a>
                     </li>
                     <li class="list-group-item">
                         <a href="#" class="btn btn-primary btn-block">Máquinas de Trabajo</a>

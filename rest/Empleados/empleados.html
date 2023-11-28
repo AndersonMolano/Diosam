@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../vista/CSS/list_user.css">
-    <title>Lista de Usuarios</title>
+    <title>Lista de Empleados</title>
 </head>
 <body>
-    <h1>Lista de Usuarios</h1>
+    <h1>Lista de Empleados</h1>
     
     <div id="userList">
         <!-- Aquí se mostrará la lista de usuarios -->
@@ -15,7 +15,7 @@
 
     <script>
         // Rutas relativas a las API
-        const listarUsuariosURL = 'listar_usuarios.php';
+        const listarUsuariosURL = 'listar_empleados.php';
         const actualizarUsuarioURL = 'actualizar_user.php';
         const eliminarUsuarioURL = 'eliminar_user.php';
 
@@ -75,8 +75,8 @@
     .then(data => {
         const userList = document.getElementById('userList');
 
-        // Filtrar usuarios que tienen el rol 'Cliente' y estado 'activo'
-        const clientesActivos = data.filter(user => user.role_user === 'Cliente' && user.state_user === 'activo');
+        // Filtrar usuarios que tienen el rol 'Empleado' y estado 'activo'
+        const empleadosActivos = data.filter(user => user.role_user === 'Empleado' && user.state_user === 'activo');
 
         // Crear una tabla para mostrar los usuarios
         const table = document.createElement('table');
@@ -97,8 +97,8 @@
             headerRow.appendChild(th);
         });
 
-        // Llenar la tabla con los datos de los usuarios filtrados y botones
-        clientesActivos.forEach(user => {
+        // Llenar la tabla con los datos de los empleados activos y botones
+        empleadosActivos.forEach(user => {
             const row = document.createElement('tr');
             headers.forEach(header => {
                 const cell = document.createElement('td');
