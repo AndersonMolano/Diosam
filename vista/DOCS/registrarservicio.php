@@ -145,23 +145,23 @@ jQuery(document).ready(function($){
 </script>
     </nav>
     </header> 
-    <form  action="../../controlador/login_user.php" method="post" class="login-form">
+    <form  method="POST" class="login-form">
         <h2>Registra un nuevo servicio</h2>
         <div class="form-floating mb-3">
-            <input  type="servicio" class="form-control"  required="required">
+            <input  type="servicio" class="form-control" name="type_servi" id="type_servi" required="required">
             <label for="floatingInput">Ingresa el nombre del Servicio</label>
         </div>
         <div class="form-floating mb-3">
-            <input  type="servicio" class="form-control"  required="required">
+            <input  type="servicio" class="form-control"  name="descrip_servi" id="descrip_servi" required="required">
             <label for="floatingInput">Ingresa la descripcion del servicio</label>
         </div>
         <div class="form-floating mb-3">
-            <input  type="servicio" class="form-control"  required="required">
+            <input  type="servicio" class="form-control"  name="price_servi" id="price_servi" required="required">
             <label for="floatingInput">Ingresar el precio del Servicio</label>
         </div>
         <br>
         <div class="button-danger">
-            <input type="submit" class="btn btn-danger" value="Ingresar"></input>
+            <input type="submit" class="btn btn-danger" value="Ingresar" name="registro_servi"></input>
         </div>
         <br>
         <br>

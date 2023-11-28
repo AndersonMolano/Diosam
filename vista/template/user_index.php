@@ -4,11 +4,6 @@
 
     <link rel="stylesheet" href="vista/CSS/template_user.css">
 
-
-
-
-
-
         <li>
             <button type="button" class="perfil_user">
               <img src="vista/IMG/User-logo.png" alt="perfil" id="abrirModal" style="width: 35px; height: 35px;">
