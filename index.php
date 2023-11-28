@@ -217,29 +217,7 @@ jQuery(document).ready(function($){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
     <script src="vista/JS/scriptNavBar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        function showConfirmation() {
-            Swal.fire({
-                title: '¿Quieres ingresar?',
-                text: "¡Regístrate gratis para desbloquear todo nuestro contenido y explorar la página a fondo! 🌟",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: ' #ff8181',
-                cancelButtonColor: '#C5C5C5',
-                confirmButtonText: 'Registrarme'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    const loadingOverlay = document.createElement('div');
-                    loadingOverlay.id = 'loading-overlay';
-                    loadingOverlay.innerHTML = '<div class="loader"></div>';
-                    document.body.appendChild(loadingOverlay);
-                    setTimeout(() => {
-                        window.location.href = 'vista/DOCS/registrarse.php';
-                    }, 1000);
-                }
-            });
-        }
-    </script>
+    
 <br>
 <br>
 <br>
