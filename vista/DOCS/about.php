@@ -44,10 +44,10 @@
                                 <a class="nav-link" href="galeria.php">Galería</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Conócenos</a>
+                                <a class="nav-link" href="conocenos.php">Conócenos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Visítanos</a>
+                                <a class="nav-link" href="visitanos.php">Visítanos</a>
                             </li>
                             <li class="nav-item">
                             <?php
