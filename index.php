@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    include ('modelo/conexion.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -224,6 +224,68 @@ jQuery(document).ready(function($){
 <br>
 <?php include('vista/Templates_fm/footer.php'); ?>
     
+<div id="notificationContainer"></div>
+
+<?php
+    // Crear la conexión PDO
+    try {
+        $pdo = new PDO("mysql:host=$server;dbname=$database", $username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo "Error de conexión: " . $e->getMessage();
+    }
+
+    // Consultar notificaciones desde la base de datos usando PDO
+    $stmt = $pdo->prepare("SELECT * FROM notificacion_maqui");
+    $stmt->execute();
+    $notificaciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $notificacionesJSON = json_encode($notificaciones);
+    ?>
+    <style>
+        #notificationContainer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            display: none;
+        }
+    </style>
+
+
+<script>
+    // Obtener notificaciones desde PHP
+    var notificaciones = <?php echo $notificacionesJSON; ?>;
+
+    // Función para mostrar notificaciones
+    function showNotification(machineName, expirationDate) {
+        // Crear un elemento de notificación
+        var notification = document.createElement("div");
+        notification.className = "alert alert-info";
+        notification.innerHTML = "Recordatorio de Mantenimiento:<br>" +
+            "Máquina: " + machineName + "<br>" +
+            "Fecha de Vencimiento: " + expirationDate;
+
+        // Agregar la notificación al contenedor
+        document.getElementById("notificationContainer").appendChild(notification);
+
+        // Mostrar la notificación
+        notification.style.display = "block";
+
+        // Ocultar la notificación después de 5 segundos (ajusta el tiempo según tus necesidades)
+        setTimeout(function () {
+            notification.style.display = "none";
+        }, 5000);
+    }
+
+    // Mostrar notificaciones desde la base de datos
+    for (var i = 0; i < notificaciones.length; i++) {
+        var notificacion = notificaciones[i];
+        showNotification(notificacion.idMachineFK, notificacion.time_notify);
+    }
+</script>
+
 
 
 </html>
