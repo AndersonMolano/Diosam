@@ -1,6 +1,6 @@
 <?php
   require_once("../../modelo/conexion.php");
-  include("../../controlador/registrar_maqui.php");
+  include("../../controlador/registrar_fechaaqui.php");
 
 ?>
 
@@ -142,25 +142,70 @@ jQuery(document).ready(function($){
 });
 </script>
     </nav>
-    </header> 
-    <form  method="POST" class="login-form">
-        <h2>Registra una nueva maquina</h2>
-        <div class="form-floating mb-3">
-            <input  type="servicio" class="form-control" name="make_machine" id="make_machine" required="required">
-            <label for="floatingInput">Ingresa la marca de la maquina</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input  type="servicio" class="form-control"  name="type_machine" id="type_machine" required="required">
-            <label for="floatingInput">Ingresa la descripcion de la maquina</label>
-        </div>
-        <br>
-        <div class="button-danger">
-            <input type="submit" class="btn btn-danger" value="Ingresar" name="registro_maqui"></input>
-        </div>
-        <br>
-        <br>
+    </header>
     
-    </form>
+    <?php
+// Agrega estas líneas en la parte superior de tu script para conectar a la base de datos
+include "../../rest/Config/config.php";
+include "../../rest/Config/utils.php";
+
+$dbConn = connect($db);
+
+// Consulta para obtener la lista de máquinas
+$queryMaquinas = $dbConn->query("SELECT id_machine, make_machine FROM maquinas");
+$maquinas = $queryMaquinas->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+<?php
+// Consulta para obtener la lista de empleados con sus nombres de usuario
+$queryEmpleados = $dbConn->query("
+    SELECT e.id_emple, e.post_emple, u.name_user
+    FROM empleado e
+    LEFT JOIN usuario u ON e.idUserFK = u.id_user
+");
+$empleados = $queryEmpleados->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
+<form method="POST" class="login-form">
+    <h2>Registra una nueva notificación</h2>
+    <div class="form-floating mb-3">
+        <input type="datetime-local" class="form-control" name="time_notify" id="time_notify" required="required">
+        <label for="floatingInput">Selecciona la fecha y hora de la notificación</label>
+    </div>
+
+    <!-- Dropdown para seleccionar la máquina -->
+    <div class="form-floating mb-3">
+        <select class="form-select" name="idMachineFK" id="idMachineFK" required="required">
+            <option value="" disabled selected>Selecciona una máquina</option>
+            <?php foreach ($maquinas as $maquina): ?>
+                <option value="<?= $maquina['id_machine']; ?>"><?= $maquina['make_machine']; ?></option>
+            <?php endforeach; ?>
+        </select>
+        <label for="idMachineFK">Selecciona la máquina</label>
+    </div>
+
+    <!-- Dropdown para seleccionar el empleado -->
+    <div class="form-floating mb-3">
+        <select class="form-select" name="idEmpleFK" id="idEmpleFK" required="required">
+            <option value="" disabled selected>Selecciona un empleado</option>
+            <?php foreach ($empleados as $empleado): ?>
+                <option value="<?= $empleado['id_emple']; ?>"><?= $empleado['name_user'] . ' - ' . $empleado['post_emple']; ?></option>
+            <?php endforeach; ?>
+        </select>
+        <label for="idEmpleFK">Selecciona el empleado</label>
+    </div>
+
+    <br>
+    <div class="button-danger">
+        <input type="submit" class="btn btn-danger" value="Ingresar" name="registro_notificacion"></input>
+    </div>
+    <br>
+    <br>
+</form>
+
+
+
 </body>
 <br>
 <br>
