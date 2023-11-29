@@ -67,19 +67,11 @@
                     
                     if(isset($_SESSION['email_user']) && $_SESSION['rol'] == 1 ){
                         require_once("vista/template/user_index.php");
-<<<<<<< HEAD
                         echo('<li class="">
                         <a class="opcion" href="rest/Admin/admin.html">administrar Usuarios</a>
                         </li>');
                         echo('<li class="">
                                 <a class="opcion" href="vista/DOCS/registrarservicio.php">Agregar servicio</a>
-=======
-                        echo('<li class="nav-item">
-                        <a class="inicia-sesion2" href="vista/DOCS/administrador.php">administrar Usuarios</a>
-                        </li>');
-                        echo('<li class="nav-item">
-                                <a class="inicia-sesion2" href="vista/DOCS/registrarservicio.php">Agregar servicio</a>
->>>>>>> 27b1ebbff02bbfb0d5387ba42fd492ff5fb210bb
                                 </li>');
                         
                     }else if(isset($_SESSION['email_user'])){ 

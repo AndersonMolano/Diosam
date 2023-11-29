@@ -68,6 +68,7 @@ descrip_servi varchar(50) not null
 create table cita(
 id_cita int auto_increment primary key,
 date_meet datetime not null,
+state_meet enum('Aceptado','Pendiente', 'Rechazada'),
 idServiFK int,
 idClieFK Int,
 foreign key(idServiFK) references servicio(id_servi),

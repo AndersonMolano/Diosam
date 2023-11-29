@@ -141,7 +141,7 @@ jQuery(document).ready(function($){
 
     
 
-<form class="login-form">
+<form method= "POST" class="login-form">
     <h2>Registro</h2>
     <div class="form-floating mb-3">
     <?php
@@ -153,7 +153,7 @@ jQuery(document).ready(function($){
             echo 'a';
         }
     ?>
-    <label for="floatingInput">Nombre</label>
+    <label for="floatingInput">Nombre del usuario</label>
     </div> 
     <div class="form-floating mb-3">
         <select class="form-select" id="selectServicio" name="selectServicio">
