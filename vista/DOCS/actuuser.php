@@ -1,3 +1,6 @@
+<?php
+  include("../../controlador/registrar_user.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +35,7 @@
         }
     </style>
 </head>
-
 <body>
-
     <nav class="navbar navbar-expand-custom navbar-mainbg">
         <a class="navbar-brand" href="../../index.php">
             <img src="../IMG/2.png" alt="" width="97" height="77">
@@ -120,7 +121,6 @@ jQuery(document).ready(function($){
         <h2>Registro</h2>
        
         <div class="form-floating mb-3">
-    
             <input minlength="4" maxlength="20" type="name" class="form-control" id="name_user" name="name_user" placeholder="Name" required autofocus>
             <label for="floatingInput">Nombres</label>
           </div> 
@@ -140,9 +140,19 @@ jQuery(document).ready(function($){
           
           <div class="button-danger">
             <input type="submit" class="btn btn-danger" value="Registrarse" name="registro_user"></input>
-          </div> 
+          </div>  
+         <br>
+         <br>
+         <div class = "button-pss"><button type="button" class="btn btn-outline-secondary" href="login.php">Iniciar Sesion</button></div>
+        
        </form>
       </body>
       <?php include('../Templates_fm/footer.php'); ?>
     </html>
      
+
+    
+
+    
+    
+   
