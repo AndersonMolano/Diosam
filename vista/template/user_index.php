@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +32,7 @@
         <div class="nombre">  
           <?php
           echo'¡Hola, ';
-          echo $_SESSION[ 'name_user'];
+          echo $_SESSION['name_user'];
           echo'!';
           ?>
        <form method="post" action="controlador/cerrar_sesion.php" class="cerrar_sesion">
