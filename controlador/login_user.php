@@ -20,14 +20,13 @@ if ($filas > 0) {
     $nombre_usur = $fila_datos['name_user'];
     $apellido_user = $fila_datos['lastname_user'];
     $correo_user = $fila_datos['email_user'];
-    $rol_user = $fila_datos['role_user'];
     $estado_user = $fila_datos['state_user'];
     
 
     $_SESSION['name_user'] = $nombre_user; // Guarda el nombre en la sesión
-    $_SESSION['lastname_user'] = $apellido_user; // Guarda el nombre en la sesión
-    $_SESSION['correo_user'] = $correo_user; // Guarda el nombre en la sesión
-    $_SESSION['name_user'] = $nombre_usuario; // Guarda el nombre en la sesión    
+    $_SESSION['lastname_user'] = $apellido_user; // Guarda el apellido en la sesión
+    $_SESSION['correo_user'] = $correo_user; // Guarda el correo en la sesión
+    $_SESSION['name_user'] = $nombre_usuario; // Guarda el  en la sesión    
 
 
         if($rol['role_user'] == 'Empleado'){ // Si es Adminstrador:

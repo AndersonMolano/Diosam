@@ -38,6 +38,7 @@
           ?>
        <form method="post" action="controlador/cerrar_sesion.php" class="cerrar_sesion">
     <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+    <button type="submit" class= "btn btn-danger">Actualizar informacion </button>
 </form>
 
     </div>
