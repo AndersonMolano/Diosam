@@ -1,6 +1,8 @@
 <?php
     session_start();
-    include ('modelo/conexion.php')
+    include ('modelo/conexion.php');
+    include ('vista/template/noti.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

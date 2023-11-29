@@ -24,10 +24,12 @@
     </style>
     
 
-<div id="miVentanaInferior" class="notificacion">
- 
-    <p>Recuerda que la máquina <?php echo $nombreMaquina; ?> tiene una fecha de mantenimiento para el día <?php echo $fechaMantenimiento; ?>.</p>
-</div>
+    <div id="miVentanaInferior" class="notificacion">
+    <?php
+    include('rest/Maquinas/recordar_maquinas.php');
+    ?>
+    <p>Recuerda que la máquina <?php echo $nombreUsuario; ?> tiene una fecha de mantenimiento para el día <?php echo $fechaAccion; ?>.</p>
+    </div>
 
 
 <script>
