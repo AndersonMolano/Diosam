@@ -1,0 +1,55 @@
+/* Estilos generales */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+/* Estilos para el encabezado */
+h1 {
+    color: black;
+}
+
+/* Estilos para las listas de enlaces */
+.list-group {
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    margin-bottom: 10px;
+}
+
+/* Estilos para los botones */
+.btn {
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+/* Estilos para los bloques de agregar y administrar */
+.col-md-6 {
+    margin-bottom: 30px;
+}
+
+/* Ajustes para el espacio entre los botones */
+.btn-block {
+    margin-bottom: 10px;
+}
+
+/* Ajuste para colocar "Agregar" debajo de "Administrar" */
+.col-md-6 {
+    clear: both;
+    margin-top: 20px;
+}
+ 

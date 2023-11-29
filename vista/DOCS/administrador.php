@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
     <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/docs.css">
+    <link rel="stylesheet" href="../CSS/administrador.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Asegúrate de incluir jQuery antes de tu archivo JavaScript -->
     <script src="JS/scriptNavBar.js"></script> <!-- Incluye tu archivo JavaScript una sola vez -->
@@ -147,15 +148,6 @@ jQuery(document).ready(function($){
             </div>
 
             <div class="col-md-6">
-                <h2>Activar/Inactivar</h2>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-success btn-block">Activar/Inactivar Citas</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-success btn-block">Activar/Inactivar Clientes</a>
-                    </li>
-                </ul>
 
                 <h2>Agregar</h2>
                 <ul class="list-group">
