@@ -1,3 +1,9 @@
+<?php
+  require_once("../../modelo/conexion.php");
+  include("../../controlador/registrar_maqui.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,11 +64,29 @@
                     <a class="nav-link" href="visitanos.php"><i class="far fa-calendar-alt"></i>Visítanos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php"><i class="far fa-chart-bar"></i>Iniciar Sesion</a>
+                <?php
+                    
+                    if(isset($_SESSION['email_user']) && $_SESSION['rol'] == 1 ){
+                        require_once("../template/user_log.php");
+                        echo('<li class="nav-item">
+                        <a class="inicia-sesion" href="vista/DOCS/administrador.php">administrar Usuarios</a>
+                        </li>');
+                        echo('<li class="nav-item">
+                          <a class="inicia-sesion" href="registrar_servicio.php">Agregar servicio</a>
+                          </li>');
+                        
+                    }else if(isset($_SESSION['email_user'])){ 
+                        require_once("../template/user_log.php");
+
+                        }else{
+                            echo('<li class="nav-item">
+                            <a class="inicia-sesion" href="login.php">Iniciar Sesión</a>
+                            </li>');
+                        }
+                    ?>
                 </li>
             </ul>
         </div>
-    </nav>
         <script>
         function test(){
 	var tabsNewAnim = $('#navbarSupportedContent');
@@ -119,59 +143,31 @@ jQuery(document).ready(function($){
 	target.parent().addClass('active');
 });
 </script>
-<div class="container mt-5">
-        <h1 style="color:black;">Panel de Administrador</h1>
-        <br>
-        <br>
-
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Administrar</h2>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="../../rest/Usuarios/usuarios.html" class="btn btn-primary btn-block">Clientes</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="../../rest/Empleados/empleados.html" class="btn btn-primary btn-block">Empleados</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="../../rest/Citas/citas.html" class="btn btn-primary btn-block">Citas</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="../../rest/Servicios/servicios.html" class="btn btn-primary btn-block">Servicios</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-primary btn-block">Máquinas de Trabajo</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-md-6">
-                <h2>Activar/Inactivar</h2>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-success btn-block">Activar/Inactivar Citas</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-success btn-block">Activar/Inactivar Clientes</a>
-                    </li>
-                </ul>
-
-                <h2>Agregar</h2>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="registrarempleado.php" class="btn btn-warning btn-block">Agregar Empleado</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="registrarservicio.php" class="btn btn-warning btn-block">Agregar Servicio</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="registrarmaquina.php" class="btn btn-warning btn-block">Agregar maquina</a>
-                    </li>
-                </ul>
-            </div>
+    </nav>
+    </header> 
+    <form  method="POST" class="login-form">
+        <h2>Registra una nueva maquina</h2>
+        <div class="form-floating mb-3">
+            <input  type="servicio" class="form-control" name="make_machine" id="make_machine" required="required">
+            <label for="floatingInput">Ingresa la marca de la maquina</label>
         </div>
-    </div>
+        <div class="form-floating mb-3">
+            <input  type="servicio" class="form-control"  name="type_machine" id="type_machine" required="required">
+            <label for="floatingInput">Ingresa la descripcion de la maquina</label>
+        </div>
+        <br>
+        <div class="button-danger">
+            <input type="submit" class="btn btn-danger" value="Ingresar" name="registro_maqui"></input>
+        </div>
+        <br>
+        <br>
+    
+    </form>
 </body>
+<br>
+<br>
+<br>
+<br>
 
-</html>
+<?php include('../Templates_fm/footer.php'); ?>
+    </html>
