@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
 
     if (!empty($id_cita)) {
         // Construir la consulta SQL para eliminar el usuario
-        $sql = "DELETE FROM cita WHERE id_cita = $id_cita";
+        $sql = "DELETE FROM cita WHERE id_cita = :id_cita";
         $statement = $dbConn->prepare($sql);
         $statement->bindValue(':id_cita', $id_cita);
 
