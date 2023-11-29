@@ -1,7 +1,7 @@
 <?php
     session_start();
     include ('modelo/conexion.php');
-    include ('vista/template/noti.php');
+    
 
 ?>
 <!DOCTYPE html>

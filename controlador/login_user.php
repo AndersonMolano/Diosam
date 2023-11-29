@@ -4,7 +4,7 @@ session_start(); // Iniciar la sesión si aún no se ha hecho
 $email_user = $_POST['email_user'];
 $password_user = $_POST['password_user'];
 
-$conexion = mysqli_connect("localhost:3307", "root", "", "jds_database");
+$conexion = mysqli_connect("localhost", "root", "", "jds_database");
 $consulta = "SELECT * FROM usuario WHERE email_user='$email_user' AND password_user='$password_user'";
 $resultado = mysqli_query($conexion, $consulta);
 $filas = mysqli_num_rows($resultado);
