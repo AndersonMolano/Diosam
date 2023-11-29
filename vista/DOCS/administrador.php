@@ -141,7 +141,7 @@ jQuery(document).ready(function($){
                         <a href="../../rest/Servicios/servicios.html" class="btn btn-primary btn-block">Servicios</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" class="btn btn-primary btn-block">Máquinas de Trabajo</a>
+                        <a href="../../rest/Maquinas/maquinas.html" class="btn btn-primary btn-block">Máquinas de Trabajo</a>
                     </li>
                 </ul>
             </div>
