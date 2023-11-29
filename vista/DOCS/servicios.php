@@ -154,7 +154,9 @@ jQuery(document).ready(function($){
                 <div class="card-body">
                     <h5 class="card-title">Colorimetria</h5>
                     <p class="card-text">Explora la paleta de colores infinita para tu cabello con nuestra colorimetría experta, Cada tono es una expresión única de tu personalidad!</p>
-                    <a href="javascript:void(0)" class="btn btn-danger" style="cursor: pointer; background-color: rgb(244, 210, 247); border-color: rgb(147 147 147); border-radius: 10px; transition: background-color 0.3s; outline: none; color: black;" onclick="showConfirmation()" >Reservar cita</a>
+                    <a href="javascript:void(0)" class="btn btn-danger" style="cursor: pointer; background-color: rgb(244, 210, 247); border-color: rgb(147 147 147); border-radius: 10px; transition: background-color 0.3s; outline: none; color: black;" 
+                     
+                    onclick="showConfirmation()" >Reservar cita</a>
 
                 </div>
             </div>
@@ -261,8 +263,37 @@ jQuery(document).ready(function($){
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function showConfirmation() {
-        window.location.href = 'registrarcita.php'; 
-        }
+        <?php
+            // Verificar si el usuario está autenticado
+            if(isset($_SESSION['email_user'])){
+                // Si está autenticado, redirigir a la página deseada (registrarcita.php en este caso)
+                echo 'window.location.href = "registrarcita.php";';
+            } else {
+                // Si no está autenticado, mostrar la alerta
+                echo '
+                    Swal.fire({
+                        title: "¿Quieres ingresar?",
+                        text: "¡Regístrate gratis para desbloquear todo nuestro contenido y explorar la página a fondo! 🌟",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#ff8181",
+                        cancelButtonColor: "#C5C5C5",
+                        confirmButtonText: "Registrarme"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            const loadingOverlay = document.createElement("div");
+                            loadingOverlay.id = "loading-overlay";
+                            loadingOverlay.innerHTML = \'<div class="loader"></div>\';
+                            document.body.appendChild(loadingOverlay);
+                            setTimeout(() => {
+                                window.location.href = "registrarse.php";
+                            }, 1000);
+                        }
+                    });
+                ';
+            }
+        ?>
+    }
     </script>
 
 </body>
