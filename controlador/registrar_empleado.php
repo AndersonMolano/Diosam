@@ -2,7 +2,7 @@
 session_start();
 require_once("../../modelo/conexion.php");
 
-if (isset($_POST["registro_user"])) {
+if (isset($_POST["registro"])) {
 
     
     
@@ -11,7 +11,7 @@ if (isset($_POST["registro_user"])) {
         $email=$_POST["email_user"];
         $password=$_POST["password_user"];
         $sql=$conexion->query(" insert into usuario (name_user,lastname_user,email_user,password_user,role_user,state_user)
-                                values('$name','$lastname','$email','$password',2,1) ");
+                                values('$name','$lastname','$email','$password',1,1) ");
 
 
         $lastUserId = mysqli_insert_id($conexion);

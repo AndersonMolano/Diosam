@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -71,46 +70,61 @@
     }
 
     // Hacer una solicitud GET a la API para obtener la lista de citas
+   
     fetch(listarCitaURL)
-        .then(response => response.json())
-        .then(data => {
-            const citaList = document.getElementById('citaList');
+    .then(response => response.json())
+    .then(data => {
+        const citaList = document.getElementById('citaList');
 
-            // Crear una tabla para mostrar las citas
-            const table = document.createElement('table');
-            const thead = document.createElement('thead');
-            const tbody = document.createElement('tbody');
-            citaList.appendChild(table);
-            table.appendChild(thead);
-            table.appendChild(tbody);
+        // Crear una tabla para mostrar las citas
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        const tbody = document.createElement('tbody');
+        citaList.appendChild(table);
+        table.appendChild(thead);
+        table.appendChild(tbody);
 
-            // Crear encabezados de tabla
-            const headers = Object.keys(data[0]);
-            headers.push('Acciones'); // Agregar una columna para los botones
-            const headerRow = document.createElement('tr');
-            thead.appendChild(headerRow);
-            headers.forEach(header => {
+        // Crear encabezados de tabla
+        const headers = Object.keys(data[0]);
+        headers.push('Acciones'); // Agregar una columna para los botones
+        const headerRow = document.createElement('tr');
+        thead.appendChild(headerRow);
+        headers.forEach(header => {
+            // Excluir las columnas idServiFK e idClieFK del encabezado
+            if (header !== 'idServiFK' && header !== 'idClieFK') {
                 const th = document.createElement('th');
                 th.textContent = header;
                 headerRow.appendChild(th);
-            });
+            }
+        });
 
-            // Llenar la tabla con los datos de las citas y botones
-            data.forEach(servi => {
-                const row = document.createElement('tr');
-                headers.forEach(header => {
+        // Llenar la tabla con los datos de las citas y botones
+        data.forEach(cita => {
+            const row = document.createElement('tr');
+            headers.forEach(header => {
+                // Excluir las columnas idServiFK e idClieFK de la visualización
+                if (header !== 'idServiFK' && header !== 'idClieFK') {
                     const cell = document.createElement('td');
                     if (header === 'Acciones') {
-                        cell.appendChild(createButtons(servi));
+                        cell.appendChild(createButtons(cita));
                     } else {
-                        cell.textContent = servi[header];
+                        // Mostrar nombre de usuario y servicio en lugar de ID
+                        cell.textContent = header === 'idClieFK' ? cita.nombreUsuario : (header === 'idServiFK' ? cita.nombreServicio : cita[header]);
                     }
                     row.appendChild(cell);
-                });
-                tbody.appendChild(row);
+                }
             });
-        })
-        .catch(error => {
-            console.error('Error al obtener la lista de citas:', error);
+            tbody.appendChild(row);
         });
+
+        // Agregar la tabla al cuerpo del documento
+        table.appendChild(tbody);
+        citaList.appendChild(table);
+    })
+    .catch(error => {
+        console.error('Error al obtener la lista de citas:', error);
+    });
 </script>
+
+</body>
+</html>

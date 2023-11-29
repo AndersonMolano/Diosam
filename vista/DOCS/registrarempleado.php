@@ -1,5 +1,5 @@
 <?php
-  include("../../controlador/registrar_user.php");
+  include("../../controlador/registrar_empleado.php");
 
 ?>
 <!DOCTYPE html>
@@ -121,7 +121,7 @@ jQuery(document).ready(function($){
     </nav>
     </header> 
        <form class="login-form" method="POST">
-        <h2>Registro</h2>
+        <h2>Registro de Empleados </h2>
        
         <div class="form-floating mb-3">
     
@@ -143,7 +143,7 @@ jQuery(document).ready(function($){
           <br>
           
           <div class="button-danger">
-            <input type="submit" class="btn btn-danger" value="Registrarse" name="registro_user"></input>
+            <input type="submit" class="btn btn-danger" value="Registrar" name="registro"></input>
           </div>  
          <br>
          <br>
