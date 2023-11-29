@@ -58,7 +58,19 @@
                     <a class="nav-link" href="visitanos.php"><i class="far fa-calendar-alt"></i>Visítanos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php"><i class="far fa-chart-bar"></i>Iniciar Sesion</a>
+                <?php
+                    
+                    if(isset($_SESSION['email_user']) && $_SESSION['rol'] == 1 ){
+                        require_once("../template/user_log.php");
+                        echo('<li class="nav-item">
+                        <a class="nav-link opcion text-dark font-weight-bold text-center h4" href="administrador.php">Administrar Usuarios</a>
+                        </li>');
+                        
+                    }else if(isset($_SESSION['email_user'])){ 
+                        require_once("../template/user_log.php");
+
+                    }
+                    ?>
                 </li>
             </ul>
         </div>

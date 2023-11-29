@@ -1,6 +1,6 @@
 <?php
 $db = [
-    'host' => 'localhost:3307',
+    'host' => 'localhost',
     'username' => 'root',
     'password' => '',
     'db' => 'jds_database'

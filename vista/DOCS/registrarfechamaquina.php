@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once("../../modelo/conexion.php");
   include("../../controlador/registrar_fechaaqui.php");
 
@@ -69,7 +70,7 @@
                     if(isset($_SESSION['email_user']) && $_SESSION['rol'] == 1 ){
                         require_once("../template/user_log.php");
                         echo('<li class="nav-item">
-                        <a class="nav-link opcion text-dark font-weight-bold text-center h4" href="vista/DOCS/administrador.php">Administrar Usuarios</a>
+                        <a class="nav-link opcion text-dark font-weight-bold text-center h4" href="administrador.php">Administrar Usuarios</a>
                         </li>');
                        
                         

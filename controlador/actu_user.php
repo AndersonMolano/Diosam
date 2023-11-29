@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require_once("../../modelo/conexion.php");
 
 if (isset($_POST["registro_user"])) {
