@@ -1,4 +1,6 @@
-
+<?php
+include ('../../vista/template/noti.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
