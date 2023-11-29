@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../vista/CSS/list_user.css">
     <title>Lista de Maquinas</title>
+    
 </head>
 <body>
     <h1>Lista de Maquinas</h1>
@@ -222,49 +224,6 @@
                 console.error('Error al obtener la lista de fechas de mantenimiento en maquinas:', error);
             });
     </script>
-    
-    <style>
-        #miVentanaInferior {
-            border-top-left-radius: 50px;
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            height: 300px;
-            width: 500px;
-            background-color: #316599;
-            padding: 10px;
-            text-align: center;
-            border-top: 1px solid #5084b8;
-            display: none;
-            opacity: 0; /* Establecer la opacidad inicial en 0 */
-            visibility: hidden; /* Ocultar inicialmente */
-            transition: opacity 1s ease, visibility 1s ease; /* Agregar transición para la propiedad de opacidad y visibilidad */
-        }
-
-        #miVentanaInferior.mostrar {
-            display: block;
-            opacity: 1;
-            visibility: visible;
-        }
-    </style>
-
-<div id="miVentanaInferior">
-    <p>Prueba</p>
-</div>
-
-<script>
-    // Mostrar la ventana inferior
-    document.getElementById('miVentanaInferior').style.display = 'block';
-
-    // Desaparecer después de 5 segundos
-    setTimeout(function () {
-        document.getElementById('miVentanaInferior').style.opacity = 0;
-    }, 3000);
-
-    setTimeout(function() {
-        document.getElementById('miVentanaInferior').classList.add('mostrar');
-    }, 500);
-</script>
         
 </body>
 </html>

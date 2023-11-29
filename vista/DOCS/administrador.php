@@ -1,3 +1,6 @@
+<?php
+include ('../template/noti.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

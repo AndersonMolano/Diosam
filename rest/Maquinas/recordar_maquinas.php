@@ -25,4 +25,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     header("Content-Type: application/json");
     echo $response;
 }
-?>
+
+
+// recordar_maquinas.php
+function obtenerInformacionMaquina() {
+    // Realizar la lógica de la consulta para obtener la información de la máquina
+    // Aquí deberías conectar a la base de datos y ejecutar tu consulta
+    // Supongamos que obtienes el nombre y la fecha de mantenimiento de alguna manera
+    $nombreMaquina = "Nombre de la Máquina"; // Reemplazar con la lógica de tu consulta
+    $fechaMantenimiento = "Fecha de Mantenimiento"; // Reemplazar con la lógica de tu consulta
+
+    // Devolver la información como un array asociativo
+    return [
+        'nombre' => $nombreMaquina,
+        'fecha_mantenimiento' => $fechaMantenimiento,
+    ];
+}
+
+
