@@ -14,6 +14,11 @@ state_user enum('activo','inactivo') not null
 
 select * from usuario;
 
+INSERT INTO usuario() values (null,"Nicolas", "Zuñiga", "nico@gmail.com", "12341234", "1","1");
+
+
+delete from usuario where id_user=3;
+
 
 select role_user from usuario where id_user=3;
 create table maquinas(
@@ -22,14 +27,13 @@ make_machine varchar (30) not null,
 type_machine varchar(30) not null
 );
 
+select * from maquinas;
 create table empleado(
 id_emple int auto_increment  key,
 post_emple varchar (10) not null,
 idUserFK int,
-foreign key (idUserFK) references usuario(id_user)
+foreign key (idUserFK) references usuario(id_user) ON DELETE CASCADE
 );
-
-
 
 
 create table notificacion_maqui(
@@ -45,10 +49,10 @@ create table cliente(
 id_client int auto_increment primary key,
 phone varchar(11) not null,
 idUserFk int,
-
-foreign key (idUserFK) references usuario(id_user)
+foreign key (idUserFK) references usuario(id_user) ON DELETE CASCADE
 );
-SELECT * FROM CLIENTE;
+
+SELECT * FROM cliente;
 
 
 
@@ -63,7 +67,7 @@ descrip_servi varchar(50) not null
 
 
 
-
+select * from servicio;
 
 create table cita(
 id_cita int auto_increment primary key,
@@ -72,7 +76,7 @@ state_meet enum('Aceptado','Pendiente', 'Rechazada'),
 idServiFK int,
 idClieFK Int,
 foreign key(idServiFK) references servicio(id_servi),
-foreign key(idClieFK) references cliente(id_client)
+foreign key(idClieFK) references cliente(id_client) ON DELETE CASCADE
 );
 
 select * from cita;
