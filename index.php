@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include ('modelo/conexion.php');
+    include ('vista/template/noti.php');
 
 ?>
 <!DOCTYPE html>
@@ -223,8 +225,5 @@ jQuery(document).ready(function($){
 <br>
 <br>
 <?php include('vista/Templates_fm/footer.php'); ?>
-    
-
-
 </html>
 

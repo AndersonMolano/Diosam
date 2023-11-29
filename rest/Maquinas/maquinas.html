@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../vista/CSS/list_user.css">
     <title>Lista de Maquinas</title>
+    
 </head>
 <body>
     <h1>Lista de Maquinas</h1>
@@ -112,5 +114,116 @@
                 console.error('Error al obtener la lista de usuarios:', error);
             });
     </script>
+
+
+
+
+<h1>Fecha de Mantenimiento en Maquinas</h1>
+
+    <div id="userListDate"> 
+        <!-- Aquí se mostrará la lista de fechas de mantenimiento en maquinas -->
+    </div>
+
+    <script>
+        // Rutas relativas a las API
+        const listarMaquinasURL = 'recordar_maquinas.php';
+        const actualizarMaquinasURL = 'actualizar_servicios.php';
+        const eliminarMaquinasURL = 'eliminar_servicios.php';
+
+        // Función para crear botones de Actualizar y Eliminar
+        function createButtons(user) {
+            const updateButton = document.createElement('button');
+            updateButton.textContent = 'Actualizar';
+            updateButton.addEventListener('click', () => {
+                // Implementa aquí la lógica para actualizar el usuario utilizando tu API
+                fetch(actualizarUsuarioURL, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(user), // Debes ajustar esto según la estructura de tu API
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Usuario actualizado con éxito');
+                    // Puedes actualizar la lista de usuarios o recargar la página
+                })
+                .catch(error => {
+                    console.error('Error al actualizar el usuario:', error);
+                });
+            });
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Eliminar';
+            deleteButton.addEventListener('click', () => {
+                // Implementa aquí la lógica para eliminar el usuario utilizando tu API
+                fetch(eliminarUsuarioURL + '?id_servi=' + user.id_servi, {
+                    method: 'DELETE',
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Usuario eliminado con éxito');
+                        // Puedes actualizar la lista de usuarios o recargar la página
+                    } else {
+                        alert('Error al eliminar el usuario');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al eliminar el usuario:', error);
+                });
+            });
+
+            const buttonContainer = document.createElement('div');
+            buttonContainer.appendChild(updateButton);
+            buttonContainer.appendChild(deleteButton);
+
+            return buttonContainer;
+        }
+
+        // Hacer una solicitud GET a la API para obtener la lista de fechas de mantenimiento en maquinas
+        fetch(listarMaquinasURL)
+            .then(response => response.json())
+            .then(data => {
+                const userListDate = document.getElementById('userListDate');
+
+                // Crear una tabla para mostrar las fechas de mantenimiento en maquinas
+                const tableDate = document.createElement('table');
+                const theadDate = document.createElement('thead');
+                const tbodyDate = document.createElement('tbody');
+                userListDate.appendChild(tableDate);
+                tableDate.appendChild(theadDate);
+                tableDate.appendChild(tbodyDate);
+
+                // Crear encabezados de tabla
+                const headersDate = Object.keys(data[0]);
+                headersDate.push('Acciones'); // Agregar una columna para los botones
+                const headerRowDate = document.createElement('tr');
+                theadDate.appendChild(headerRowDate);
+                headersDate.forEach(header => {
+                    const th = document.createElement('th');
+                    th.textContent = header;
+                    headerRowDate.appendChild(th);
+                });
+
+                // Llenar la tabla con los datos de las fechas de mantenimiento en maquinas y botones
+                data.forEach(user => {
+                    const row = document.createElement('tr');
+                    headersDate.forEach(header => {
+                        const cell = document.createElement('td');
+                        if (header === 'Acciones') {
+                            cell.appendChild(createButtons(user));
+                        } else {
+                            cell.textContent = user[header];
+                        }
+                        row.appendChild(cell);
+                    });
+                    tbodyDate.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error al obtener la lista de fechas de mantenimiento en maquinas:', error);
+            });
+    </script>
+        
 </body>
 </html>
