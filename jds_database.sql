@@ -17,9 +17,6 @@ select * from usuario;
 INSERT INTO usuario() values (null,"Nicolas", "Zuñiga", "nico@gmail.com", "12341234", "1","1");
 
 
-delete from usuario where id_user=3;
-
-
 select role_user from usuario where id_user=3;
 create table maquinas(
 id_machine int auto_increment primary key,
