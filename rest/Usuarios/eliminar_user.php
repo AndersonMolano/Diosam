@@ -11,7 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
 
     if (!empty($id_user)) {
         // Construir la consulta SQL para eliminar el usuario
-        $sql = "DELETE FROM usuario WHERE id_user = :id_user";
+        $sql = "DELETE usuario, cliente, cita
+                FROM usuario
+                LEFT JOIN cliente ON usuario.id_user = cliente.idUserFK
+                LEFT JOIN cita ON cliente.id_client = cita.idClieFK
+                WHERE usuario.id_user = :id_user";
         $statement = $dbConn->prepare($sql);
         $statement->bindValue(':id_user', $id_user);
 
