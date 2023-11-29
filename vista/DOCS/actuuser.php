@@ -1,9 +1,3 @@
-<?php
-  require_once("../../modelo/conexion.php");
-  include("../../controlador/registrar_servi.php");
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +10,6 @@
     <link rel="stylesheet" href="../CSS/docs.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Asegúrate de incluir jQuery antes de tu archivo JavaScript -->
-    <script src="JS/scriptNavBar.js"></script> <!-- Incluye tu archivo JavaScript una sola vez -->
-    <title>Diosam</title>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,700;1,700&display=swap');
 
@@ -56,7 +47,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../../index.php"><i class="fas fa-tachometer-alt"></i>Inicio</a>
                 </li>
-            
                 <li class="nav-item">
                     <a class="nav-link" href="conocenos.php"><i class="far fa-clone"></i>Conócenos</a>
                 </li>
@@ -64,24 +54,7 @@
                     <a class="nav-link" href="visitanos.php"><i class="far fa-calendar-alt"></i>Visítanos</a>
                 </li>
                 <li class="nav-item">
-                <?php
-                    
-                    if(isset($_SESSION['email_user']) && $_SESSION['rol'] == 1 ){
-                        require_once("../template/user_log.php");
-                        echo('<li class="nav-item">
-                        <a class="nav-link opcion text-dark font-weight-bold text-center h4" href="administrador.php">Administrar Usuarios</a>
-                        </li>');
-                     
-                        
-                    }else if(isset($_SESSION['email_user'])){ 
-                        require_once("../template/user_log.php");
-
-                        }else{
-                            echo('<li class="nav-item">
-                            <a class="inicia-sesion" href="login.php">Iniciar Sesión</a>
-                            </li>');
-                        }
-                    ?>
+                    <a class="nav-link" href="login.php"><i class="far fa-chart-bar"></i>Iniciar Sesion</a>
                 </li>
             </ul>
         </div>
@@ -143,33 +116,33 @@ jQuery(document).ready(function($){
 </script>
     </nav>
     </header> 
-    <form  method="POST" class="login-form">
-        <h2>Registra un nuevo servicio</h2>
+       <form class="login-form" method="POST">
+        <h2>Registro</h2>
+       
         <div class="form-floating mb-3">
-            <input  type="servicio" class="form-control" name="type_servi" id="type_servi" required="required">
-            <label for="floatingInput">Ingresa el nombre del Servicio</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input  type="servicio" class="form-control"  name="descrip_servi" id="descrip_servi" required="required">
-            <label for="floatingInput">Ingresa la descripcion del servicio</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input  type="servicio" class="form-control"  name="price_servi" id="price_servi" required="required">
-            <label for="floatingInput">Ingresar el precio del Servicio</label>
-        </div>
-        <br>
-        <div class="button-danger">
-            <input type="submit" class="btn btn-danger" value="Ingresar" name="registro_servi"></input>
-        </div>
-        <br>
-        <br>
     
-    </form>
-</body>
-<br>
-<br>
-<br>
-<br>
-
-<?php include('../Templates_fm/footer.php'); ?>
+            <input minlength="4" maxlength="20" type="name" class="form-control" id="name_user" name="name_user" placeholder="Name" required autofocus>
+            <label for="floatingInput">Nombres</label>
+          </div> 
+          <div class="form-floating mb-3">
+            <input minlength="4" maxlength="40" type="lastname" class="form-control" id="floatingInput" placeholder="Apellidos" name="lastname_user" requiered>
+            <label for="floatingInput">Apellidos</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input maxlength="40" type="email" class="form-control" id="floatingInput" placeholder="Email" name="email_user" required>
+            <label for="floatingInput">Correo Electrónico</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input minlength="8" maxlength="40"   type="password" alt="alphanumeric" class="form-control" id="floatingInput"  placeholder="Contraseña" name="password_user" required>
+            <label for="floatingInput">Contraseña</label>
+          </div>
+          <br>
+          
+          <div class="button-danger">
+            <input type="submit" class="btn btn-danger" value="Registrarse" name="registro_user"></input>
+          </div> 
+       </form>
+      </body>
+      <?php include('../Templates_fm/footer.php'); ?>
     </html>
+     

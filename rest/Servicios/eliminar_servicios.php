@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
 
     if (!empty($id_servi)) {
         // Construir la consulta SQL para eliminar el usuario
-        $sql = "DELETE FROM servicio WHERE id_servi = :id_servi";
+        $sql = "DELETE FROM servicio WHERE id_servi = $id_servi";
         $statement = $dbConn->prepare($sql);
         $statement->bindValue(':id_servi', $id_servi);
 
